@@ -12,21 +12,27 @@ function App() {
       setSelectedItems([...selectedItems, i]);
     }
   };
+  const divStyles = {
+    textAlign: "left",
+    //minWidth: "50%",
+  };
 
   return (
-    <div>
-      {items.map((i) => (
-        <div key={i}>
-          <input
-            type="checkbox"
-            checked={selectedItems.includes(i)}
-            onChange={() => handleCheckboxChange(i)}
-          />
-          <label>{i}</label>
-        </div>
-      ))}
+    <>
       <p>Selected items: {selectedItems.join(", ")}</p>
-    </div>
+      <div style={divStyles}>
+        {items.map((i) => (
+          <div key={i}>
+            <input
+              type="checkbox"
+              checked={selectedItems.includes(i)}
+              onChange={() => handleCheckboxChange(i)}
+            />
+            <label>{i}</label>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
